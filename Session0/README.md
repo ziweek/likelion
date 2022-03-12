@@ -1,5 +1,7 @@
-안녕하세요.
+# Session 0 과제
 
-문득 생각난건데,
+## 다들 코로나 조심하세요!
 
-사자도 "어흥"이라고 하나요?
+!['rational_doubt']('./src/img/rational_doubt..PNG')
+
+['코로나바이러스감염증-19']('http://ncov.mohw.go.kr/')
