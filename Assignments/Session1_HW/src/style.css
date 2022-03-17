@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'GimpoGothicBold00';
+    src: url('./D2Coding-Ver1.3.2-20180524.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background-color: #f6f5f6;
+    font-family: 'GimpoGothicBold00';
+    line-height: 200%;
+}
+div{
+    text-align: center;
+    line-height: 200%;
+}
