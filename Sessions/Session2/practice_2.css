@@ -1,0 +1,31 @@
+.box_container {
+
+}
+
+.box1 {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(235, 115, 153);
+    border-radius: 10px;
+}
+
+.box2 {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(235, 235, 115);
+    border-radius: 10px;
+}
+
+.box3 {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(119, 235, 115);
+    border-radius: 10px;
+}
+
+.box4 {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(115, 187, 235);
+    border-radius: 10px;
+}
