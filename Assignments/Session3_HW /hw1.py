@@ -15,6 +15,7 @@
 
 ###########################################################
 
+
 list_a = []
 while True:
     inp = int(input())
@@ -23,4 +24,4 @@ while True:
     list_a.append(inp)
 
 print(list_a)
-print(sum(list_a))
+print(sum(list_a)/len(list_a))
