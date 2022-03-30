@@ -1,0 +1,15 @@
+div {
+    text-align: center;
+}
+
+textarea {
+    width: 30%;
+}
+
+input[type=submit] {
+    margin-top: 10px;
+}
+
+input:focus {
+    background-color: orange;
+}
