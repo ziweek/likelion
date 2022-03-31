@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+</head>
+<body>
+    <h2>글 목록</h2>
+    <div>
+        <a href="{% url 'blogApp:list_detail' 'hobby' %}">hobby</a>
+        {{ num_categoties_hobby }}
+    </div>
+    <div>
+        <a href="{% url 'blogApp:list_detail' 'food' %}">food</a>
+        {{ num_categoties_food }}
+    </div>
+    <div>
+        <a href="{% url 'blogApp:list_detail' 'programming' %}">programming</a>
+        {{ num_categoties_programming }}
+    </div>
+    <!-- <ul>
+        {% for article in articles %}
+            <li><a href="{% url 'blogApp:detail' article.id %}">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul> -->
+    <a href="{% url 'blogApp:new' %}">새 글 작성하기</a>
+</body>
+</html>
