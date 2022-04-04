@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" text="text/css" href="{% static 'css/style.css' %}" >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>new</title>
 </head>
 <body>
-    <h2>글 작성하기</h2>
+    <div class="header">
+        <h2>글 작성하기</h2>
+    </div>
     <form action="{% url 'blogApp:new' %}" method="post">
         {% csrf_token %}
-        <div>
+        <div class="container">
             <div>글 제목</div>
             <input type="text" name="title">
         </div>
-        <div>
+        <div class="container">
             <div>글 분류</div>
             <select name="category" id="category">
                 <option value="hobby">취미</option>
@@ -22,11 +26,13 @@
                 <option value="programming">프로그래밍</option>
             </select>
         </div>
-        <div>
+        <div class="container">
             <div>글 내용</div>
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
         </div>
-        <button type="submit">작성 완료</button>
+        <div class="container">
+            <button type="submit">작성 완료</button>
+        </div>
     </form>
 </body>
 </html>
