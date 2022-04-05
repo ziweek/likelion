@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <div>
+        <h2>To-Do-List 게시판</h2>
+        <ul>
+            {% for todo in todos %}
+                <li><a href="{% url 'listApp:detail' todo.id %}">{{ todo.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'listApp:new' %}">Add ToDo</a>
+    </div>
+</body>
+</html>
