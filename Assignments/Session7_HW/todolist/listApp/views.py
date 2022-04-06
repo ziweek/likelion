@@ -6,7 +6,7 @@ from .models import Todo
 from datetime import datetime
 
 def list(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.all().order_by('date')
     context = {'todos':todos}
     return render(request, 'listApp/list.html', context)
 

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" text="text/css" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +11,21 @@
 <body>
     <div>
         <h2>To-Do-List 게시판</h2>
+    </div>
+    <div>
         <ul>
             {% for todo in todos %}
-                <li><a href="{% url 'listApp:detail' todo.id %}">{{ todo.title }}</a></li>
+                <li class="li">
+                    <a href="{% url 'listApp:detail' todo.id %}">{{ todo.title }}</a>
+                    <br>
+                    {{ todo.date }}
+                    <br>
+                    {{ todo.content }}
+                </li>
             {% endfor %}
         </ul>
+    </div>
+    <div>
         <a href="{% url 'listApp:new' %}">Add ToDo</a>
     </div>
 </body>
