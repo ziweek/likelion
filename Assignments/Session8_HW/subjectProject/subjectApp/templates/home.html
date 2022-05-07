@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="headliner">
+            <h2 class="todoname">모든 전공</h2>
+            <a href="{% url 'addMajor' %}" class="linker">ADD A MAJOR</a>
+        </div>
+
+        <ul>
+            {% for major in majors %}
+            <div>
+                <li class="headliner2">
+
+                    <span class="tododate1">{{ major.name }}</span>
+                    <div class="link">
+                        <span class="cantsee">_ </span>
+                        <a href="{% url 'editMajor' major.pk %}">📝 </a><span class="cantsee">_ </span>
+                        <a href="{% url 'deleteMajor' major.pk %}">🗑</a>
+                    </div>
+
+                </li>
+            </div>
+            {% endfor %}
+        </ul>
+        <br>
+        <div class="headliner">
+            <h2 class="todoname"> 모든 과목</h2>
+            <a href="{% url 'addSubject' %}" class="linker">ADD A LECTURE</a>
+        </div>
+        <div class="inner">
+            <ol>
+                {% for subject in subjects %}
+                <div class="inner">
+                    <li class="inner2">
+                        <div class="titlediv">
+                            <div class="lecturetitle">{{ subject.subject_name }}</div>
+                            <div class="nontitlediv">
+                                <div class="tododate">Dept: {{ subject.major }} </div>
+                                <div class="tododate">Prof: {{ subject.prof_name }} </div>
+                                <div class="link">
+                                    <a href="{% url 'editSubject' subject.pk %}">📝</a>
+                                    <a href="{% url 'deleteSubject' subject.pk %}">🗑</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="todocontent">Comment: {{ subject.memo }}</div>
+                    </li>
+                </div>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+</body>
+
+</html>
