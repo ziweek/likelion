@@ -5,32 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" rel="stylesheet" />
   </head>
   <body>
-    <h2>학과 목록</h2>
-    <a href="{% url 'addMajor' %}">학과 추가</a>
-    <ul>
-      {% for major in majors %}
-      <li>{{ major.name }}</li>
-      <a href="{% url 'editMajor' major.pk %}">수정</a>
-      <a href="{% url 'deleteMajor' major.pk %}">삭제</a>
-      {% endfor %}
-    </ul>
+    <div class="header">
+      <h2>학과 목록</h2>
+    </div>
+    <div class="link">
+      <a href="{% url 'addMajor' %}">학과 추가</a>
+    </div>
+    <div class="content">
+      <ul>
+        {% for major in majors %}
+        <li>
+          <span>{{ major.name }}</span>
+          <div class="link">
+            <a href="{% url 'editMajor' major.pk %}">수정</a>
+            <a href="{% url 'deleteMajor' major.pk %}">삭제</a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
     <br />
 
-    <h2>과목 목록</h2>
-    <a href="{% url 'addSubject' %}">학과 추가</a>
-    <ul>
-      {% for subject in subjects %}
-      <li>
-        <span>{{ subject.name }}</span>
-        <span>{{ subject.major }}</span>
-        <span>{{ subject.prof_name }}</span>
-        <span>{{ subject.memo }}</span>
-        <a href="{% url 'editSubject' subject.pk %}">수정</a>
-        <a href="{% url 'deleteSubject' subject.pk %}">삭제</a>
-      </li>
-      {% endfor %}
-    </ul>
+    <div class="header">
+      <h2>과목 목록</h2>
+    </div>
+    <div class="link">
+      <a href="{% url 'addSubject' %}">과목 추가</a>
+    </div>
+    <div class="content">
+      <ul>
+        {% for subject in subjects %}
+        <li>
+          <span>과목명 : {{ subject.name }}</span><br />
+          <span>개설학과 : {{ subject.major }}</span><br />
+          <span>교수명 : {{ subject.prof_name }}</span><br />
+          <span>메모 : {{ subject.memo }}</span><br />
+          <div class="link">
+            <a href="{% url 'editSubject' subject.pk %}">수정</a>
+            <a href="{% url 'deleteSubject' subject.pk %}">삭제</a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </body>
 </html>
