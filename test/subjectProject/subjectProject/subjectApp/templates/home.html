@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+  </head>
+  <body>
+    <h2>학과 목록</h2>
+    <a href="{% url 'addMajor' %}">학과 추가</a>
+    <ul>
+      {% for major in majors %}
+      <li>{{ major.name }}</li>
+      <a href="{% url 'editMajor' major.pk %}">수정</a>
+      <a href="{% url 'deleteMajor' major.pk %}">삭제</a>
+      {% endfor %}
+    </ul>
+    <br />
+
+    <h2>과목 목록</h2>
+    <a href="{% url 'addSubject' %}">학과 추가</a>
+    <ul>
+      {% for subject in subjects %}
+      <li>
+        <span>{{ subject.name }}</span>
+        <span>{{ subject.major }}</span>
+        <span>{{ subject.prof_name }}</span>
+        <span>{{ subject.memo }}</span>
+        <a href="{% url 'editSubject' subject.pk %}">수정</a>
+        <a href="{% url 'deleteSubject' subject.pk %}">삭제</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
