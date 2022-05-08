@@ -51,3 +51,9 @@ def deleteSubjectView(request, subject_pk):
     delSubject = Subject.objects.get(pk=subject_pk)
     delSubject.delete()
     return redirect('home')
+
+
+def businessSubjectView(request):
+    subjects = Subject.objects.all()
+    businessMajor = subjects.filter(major__name='경영학과')
+    return render(request, 'business.html', {'businessMajor': businessMajor})

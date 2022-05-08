@@ -9,57 +9,35 @@
 </head>
 
 <body>
-    <div class="outer">
-        <div class="headliner">
-            <h2 class="todoname">모든 전공</h2>
-            <a href="{% url 'addMajor' %}" class="linker">ADD A MAJOR</a>
-        </div>
+    <h2>전공 목록</h2>
+    <a href="{% url 'addMajor' %}">전공 추가</a>
+    <ul>
+        {% for major in majors %}
+        <li>
+            <span>{{ major.name }}</span>
+            <a href="{% url 'editMajor' major.pk %}">수정</a>
+            <a href="{% url 'deleteMajor' major.pk %}">삭제</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
 
-        <ul>
-            {% for major in majors %}
+    <h2 class="todoname">과목 목록</h2>
+    <a href="{% url 'addSubject' %}" class="linker">강의 추가</a>
+    <ol>
+        {% for subject in subjects %}
+        <li>
+            <div>{{ subject.subject_name }}</div>
+            <div>Dept: {{ subject.major }} </div>
+            <div>Prof: {{ subject.prof_name }} </div>
             <div>
-                <li class="headliner2">
-
-                    <span class="tododate1">{{ major.name }}</span>
-                    <div class="link">
-                        <span class="cantsee">_ </span>
-                        <a href="{% url 'editMajor' major.pk %}">📝 </a><span class="cantsee">_ </span>
-                        <a href="{% url 'deleteMajor' major.pk %}">🗑</a>
-                    </div>
-
-                </li>
+                <a href="{% url 'editSubject' subject.pk %}">수정</a>
+                <a href="{% url 'deleteSubject' subject.pk %}">삭제</a>
             </div>
-            {% endfor %}
-        </ul>
-        <br>
-        <div class="headliner">
-            <h2 class="todoname"> 모든 과목</h2>
-            <a href="{% url 'addSubject' %}" class="linker">ADD A LECTURE</a>
-        </div>
-        <div class="inner">
-            <ol>
-                {% for subject in subjects %}
-                <div class="inner">
-                    <li class="inner2">
-                        <div class="titlediv">
-                            <div class="lecturetitle">{{ subject.subject_name }}</div>
-                            <div class="nontitlediv">
-                                <div class="tododate">Dept: {{ subject.major }} </div>
-                                <div class="tododate">Prof: {{ subject.prof_name }} </div>
-                                <div class="link">
-                                    <a href="{% url 'editSubject' subject.pk %}">📝</a>
-                                    <a href="{% url 'deleteSubject' subject.pk %}">🗑</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="todocontent">Comment: {{ subject.memo }}</div>
-                    </li>
-                </div>
-                {% endfor %}
-            </ol>
-        </div>
-    </div>
-
+            <div>Comment: {{ subject.memo }}</div>
+        </li>
+        {% endfor %}
+    </ol>
 </body>
 
 </html>
