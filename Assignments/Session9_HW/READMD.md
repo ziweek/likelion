@@ -6,7 +6,7 @@
 
 2.
 
-<img src='.log.gif'>
+<img src='./log.gif'>
 
 3.
 
