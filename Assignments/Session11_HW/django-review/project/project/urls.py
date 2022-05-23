@@ -14,20 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.list_page, name='list_page'),
-    path('new', views.create_page, name='create_page'),
-    path('detail/<int:post_pk>', views.detail_page, name='detail_page'),
-    path('edit/<int:post_pk>', views.edit_page, name='edit_page'),
-    path('delete/<int:post_pk>', views.delete, name='delete'),
-    path('delete-comment/<int:post_pk>/<int:comment_pk>',
-         views.delete_comment, name='delete-comment'),
-    path('registration/signup', views.signup, name='signup'),
-    path('registration/login', views.login, name='login'),
-    path('registration/logout', views.logout, name='logout'),
+    path("admin/", admin.site.urls),
+    path("", views.list_page, name="list_page"),
+    path("new", views.create_page, name="create_page"),
+    path("detail/<int:post_pk>", views.detail_page, name="detail_page"),
+    path("edit/<int:post_pk>", views.edit_page, name="edit_page"),
+    path("delete/<int:post_pk>", views.delete, name="delete"),
+    path(
+        "delete-comment/<int:post_pk>/<int:comment_pk>",
+        views.delete_comment,
+        name="delete-comment",
+    ),
+    path("registration/signup", views.signup, name="signup"),
+    path("registration/login", views.login, name="login"),
+    path("registration/logout", views.logout, name="logout"),
+    path("accounts/", include("allauth.urls")),
     # 리스트에는 쉼표를 붙이는 습관
 ]
