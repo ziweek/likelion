@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyperspace | Sergio Soriano</title>
+  </head>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: monospace, Arial, Helvetica, sans-serif;
+    }
+
+    .not_found {
+      text-align: center;
+      width: 100%;
+      margin-left: -50%;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      color: #ebebeb;
+    }
+
+    .not_found h1 {
+      margin: 0;
+      font-size: 150px;
+      line-height: 150px;
+      font-weight: bold;
+    }
+
+    .not_found h2 {
+      margin-top: 20px;
+      font-size: 30px;
+    }
+
+    .not_found canvas {
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+
+  <body>
+    <div class="not_found">
+      <h2>Lost X-Wing</h2><br/>
+      <form method='POST'>
+        {% csrf_token %}
+        <label class='title' for='username'>username</label><br/>
+        <input id='username' name='username' type='text' placeholder='id를 입력하세요'/><br/><br/>
+        <label class='title' for='password'>password</label><br/>
+        <input id='password' name='password' type='text' placeholder='ps를 입력하세요'/><br/><br/>
+        <button type="submit" id='submit' onclick="clicked()">로그인</button>
+      </form>
+      <canvas id="hyperspace"></canvas>
+    </div>
+    <script src="{% static 'js/hyperspace.js' %}"></script>
+    <script>
+        let canvas = document.querySelector('#hyperspace');
+        new Hyperspace(canvas, 100, 15);
+    </script>
+  </body>
+</html>
+
+<script>
+  function clicked() {
+    alert("게임페이지로 이동합니다.");
+  }
+</script>

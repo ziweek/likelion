@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+
+<body>
+    <form>
+        <input id="idInp" type="text">
+        <!-- <input id="psInp" type="password"> -->
+        <button id="loginBtn" type="submit">로그인</button>
+    </form>
+
+</body>
+<script>
+    const idInp = document.getElementById('idInp');
+    // const psInp = document.getElementById('psInp');
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.onclick = () => {
+        // alert('loginBtn clicked')
+        if (idInp.value === 'likelion') {
+            const promtValue = prompt('비밀번호?');
+            // if (promtValue == '') {
+            //     alert('취소되었습니다.');
+            // } else 
+            if (idInp.TEXT_NODE) {
+                alert('취소되었습니다.');
+            } else if (promtValue == '220704') {
+                alert('환영합니다.');
+            } else if (promtValue == '220704') {
+                alert('환영합니다.');
+            } else {
+                alert('인증에 실패했습니다.');
+            }
+        }
+    };
+</script>
+
+</html>
